@@ -46,7 +46,7 @@ class Calculator:
                 if self.result == "0":
                     self.result = "2"
                 else:
-                    self.result += "1"
+                    self.result += "2"
             elif chr(key) == "3":
                 if self.result == "0":
                     self.result = "3"
