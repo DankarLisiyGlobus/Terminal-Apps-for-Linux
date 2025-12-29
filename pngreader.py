@@ -1,5 +1,7 @@
 from PIL import Image
 import os
+import sys
+
 
 
 def rgb_text(r, g, b, text):
@@ -9,7 +11,7 @@ def rgb_text(r, g, b, text):
 
 os.system("clear")
 
-img = Image.open('globus.png')
+img = Image.open(sys.argv[1])
 
 width, height = img.size
 
@@ -17,7 +19,8 @@ ratio = height/width
 
 rows, columns = os.popen('stty size', 'r').read().split()
 
-size = (int(columns),round(int(columns)*ratio) if round(int(columns)*ratio) < int(rows) else int(rows)-1)
+size_x = columns
+size = (int(columns),round(int(rows)*ratio) if round(int(columns)*ratio) < int(rows) else int(rows)-1)
 
 img = img.convert('RGB')
 img = img.resize(size)
@@ -35,4 +38,5 @@ for y in range(height):
         
     print(buffer_line)
     
+
 
